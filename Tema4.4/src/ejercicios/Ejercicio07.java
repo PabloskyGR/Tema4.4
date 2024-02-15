@@ -9,7 +9,6 @@ public class Ejercicio07 {
 		Scanner sc = new Scanner(System.in);
 		
 		String frase;
-		
 		String palabra;
 		
 		System.out.println("Dime una frase:");
@@ -19,21 +18,20 @@ public class Ejercicio07 {
 		palabra = sc.next();
 		
 		System.out.println("La palabra " + palabra + " aparece un total de " + contador(palabra, frase) + " veces");
+		
+		sc.close();
 	}
 	
 	public static int contador(String palabra, String frase) {
 		int cont = 0;
-		int busqueda;
+		int busqueda = frase.indexOf(palabra); 
 		
-		for(int i = 0; i < frase.length() - 1; i++) {
-			busqueda = frase.indexOf(palabra);
-			
-			if(busqueda >= 0) {
-				cont++;
-			}
+		while (busqueda != -1) { 
+			cont++; 
+			busqueda = frase.indexOf(palabra, busqueda + 1); 
 		}
 		
 		return cont;
 	}
-
 }
+
